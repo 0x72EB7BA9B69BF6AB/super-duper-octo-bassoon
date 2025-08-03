@@ -6,8 +6,8 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
         <div className="flex items-center">
           <Link href="/" className="text-lg sm:text-xl font-bold flex items-center gap-1 hover:opacity-80 transition-opacity">
-            <span className="bg-white text-black px-3 py-1">Harmony</span>
-            <span className="text-white">TV</span>
+            <span className="bg-white text-black px-3 py-1 font-semibold">Harmony</span>
+            <span className="text-white font-semibold">TV</span>
           </Link>
         </div>
 

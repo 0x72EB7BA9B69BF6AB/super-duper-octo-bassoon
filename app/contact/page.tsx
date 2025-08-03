@@ -38,7 +38,7 @@ export default function Contact() {
       title="Contact Us" 
       subtitle="Get in touch with our team - we're here to help you succeed"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 h-full">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Contact Form */}
         <Card className="bg-transparent backdrop-blur-2xl border-gray-500 text-white">
           <CardHeader className="pb-4">
@@ -125,7 +125,7 @@ export default function Contact() {
         </Card>
 
         {/* Contact Information */}
-        <div className="space-y-4 overflow-y-auto">
+        <div className="space-y-4">
           <Card className="bg-transparent backdrop-blur-2xl border-gray-500 text-white">
             <CardContent className="p-4">
               <div className="flex items-start gap-3">
