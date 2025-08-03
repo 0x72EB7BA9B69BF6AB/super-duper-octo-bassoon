@@ -12,14 +12,14 @@ export function Navigation() {
         </div>
 
         <div className="flex gap-4 sm:gap-6 text-gray-400 text-sm sm:text-base">
-          <Link href="/terms" className="hover:text-white transition-colors">
-            Terms
+          <Link href="/" className="hover:text-white transition-colors">
+            Home
           </Link>
-          <Link href="/privacy" className="hover:text-white transition-colors">
-            Privacy
+          <Link href="/login" className="hover:text-white transition-colors">
+            Connexion
           </Link>
-          <Link href="/contact" className="hover:text-white transition-colors">
-            Contact
+          <Link href="/register" className="hover:text-white transition-colors">
+            Inscription
           </Link>
         </div>
       </div>
