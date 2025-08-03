@@ -49,9 +49,9 @@ export function LoginForm({ redirect }: LoginFormProps) {
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
       <Card className="w-full max-w-md mx-auto bg-transparent backdrop-blur-2xl border-gray-500 text-white">
         <CardHeader className="space-y-2">
-          <CardTitle className="text-2xl font-bold">Добре дошли отново</CardTitle>
+          <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>
           <CardDescription className="text-gray-400">
-            Въведете вашия имейл и парола, за да влезете в акаунта си
+            Enter your email and password to log into your account
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -60,7 +60,7 @@ export function LoginForm({ redirect }: LoginFormProps) {
               <Input
                 type="email"
                 name="email"
-                placeholder="Имейл"
+                placeholder="Email"
                 required
                 className="bg-transparent border-gray-500 text-white placeholder:text-gray-400"
               />
@@ -69,7 +69,7 @@ export function LoginForm({ redirect }: LoginFormProps) {
               <Input
                 type="password"
                 name="password"
-                placeholder="Парола"
+                placeholder="Password"
                 required
                 className="bg-transparent border-gray-500 text-white placeholder:text-gray-400"
               />
@@ -83,19 +83,19 @@ export function LoginForm({ redirect }: LoginFormProps) {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Моля, изчакайте
+                  Please wait
                 </>
               ) : (
                 <>
-                  Вход
+                  Login
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </>
               )}
             </Button>
             <div className="text-center text-sm text-gray-400">
-              Нямате акаунт?{" "}
+              Don't have an account?{" "}
               <Link href="/register" className="text-white hover:underline">
-                Регистрация
+                Register
               </Link>
             </div>
           </form>

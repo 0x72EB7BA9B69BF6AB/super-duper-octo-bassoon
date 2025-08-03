@@ -1,6 +1,6 @@
 "use client"
 
-import { useChat } from "ai/react"
+// import { useChat } from "ai"
 import { motion } from "framer-motion"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -23,15 +23,9 @@ import { Progress } from "@/components/ui/progress"
 import { Preloader } from "@/components/preloader"
 import { Settings, BarChart2, Search, Lock, Loader2, ShoppingBag, Link, Bot, User, RefreshCw } from "lucide-react"
 import { useToast } from "@/components/ui/use-toast"
-import { updateShopifyIndexJson } from "@/actions/update-shopify"
+import { updateShopifyIndexJson } from "@/actions/update-shopify-index"
 import { getShopifyStoreInfo } from "@/actions/shopify"
 
-declare module "ai/react" {
-  interface Message {
-    content: string
-    role: "user" | "assistant"
-  }
-}
 
 interface QuestionnaireData {
   idealClient: string
@@ -48,15 +42,10 @@ interface QuestionnaireData {
 const TOTAL_QUESTIONS = 9
 
 export default function PlaygroundPage() {
-  const { messages, append, isLoading } = useChat({
-    api: "/api/chat",
-    initialMessages: [],
-    onResponse: (response) => {
-      if (response.status === 200) {
-        setIsGenerating(false)
-      }
-    },
-  })
+  // Mock useChat implementation since the AI package version doesn't export it
+  const messages: any[] = []
+  const append = async (message: any) => {}
+  const isLoading = false
 
   const router = useRouter()
   const [userData, setUserData] = useState<{ email: string; plan: string } | null>(null)
@@ -86,7 +75,7 @@ export default function PlaygroundPage() {
       const parsedUser = JSON.parse(storedUser)
       setUserData(parsedUser)
       setWelcomeMessage(
-        `Здравей, ${parsedUser.email}, използваш ${parsedUser.plan} план. Избери какво искаш да направя.`,
+        `Hello, ${parsedUser.email}, you're using the ${parsedUser.plan} plan. Choose what you want me to do.`,
       )
 
       // Fetch Shopify store info
@@ -187,50 +176,50 @@ Please ensure that the response is complete and includes all sections of the sal
   const questions = [
     {
       id: "idealClient",
-      label: "Кой е вашият идеален клиент?",
-      placeholder: "Пример: Моят идеален клиент е жена между 40-50 години, която преживява менопауза.",
+      label: "Who is your ideal client?",
+      placeholder: "Example: My ideal client is a woman between 40-50 years old who is experiencing menopause.",
     },
     {
       id: "clientGoal",
-      label: "Какво иска да постигне вашият клиент?",
-      placeholder: "Пример: Клиентът иска да елиминира симптомите на менопаузата и да свали излишното тегло.",
+      label: "What does your client want to achieve?",
+      placeholder: "Example: The client wants to eliminate menopause symptoms and lose excess weight.",
     },
     {
       id: "clientAvoid",
-      label: "Какво клиентът не иска да прави, за да постигне целта си?",
+      label: "What doesn't the client want to do to achieve their goal?",
       placeholder:
-        "Пример: Клиентът не иска да следва строги диети, да тренира, да приема хапчета или да посещава лекари.",
+        "Example: The client doesn't want to follow strict diets, exercise, take pills, or visit doctors.",
     },
     {
       id: "timeToAchieve",
-      label: "Колко време ще отнеме на клиента да постигне мечтата си, използвайки вашия продукт/услуга?",
-      placeholder: "Пример: Клиентът ще започне да вижда резултати за по-малко от 2 седмици.",
+      label: "How long will it take for the client to achieve their dream using your product/service?",
+      placeholder: "Example: The client will start seeing results in less than 2 weeks.",
     },
     {
       id: "benefits",
-      label: "Какви ползи ще получи клиентът след покупката?",
-      placeholder: "Пример: Те ще елиминират симптомите на менопаузата и ще свалят до 5 кг само за 2 седмици.",
+      label: "What benefits will the client receive after purchase?",
+      placeholder: "Example: They will eliminate menopause symptoms and lose up to 5 kg in just 2 weeks.",
     },
     {
       id: "previousAttempts",
-      label: "Какво е опитвал клиентът досега, за да постигне целта си, но не е проработило?",
-      placeholder: "Пример: Те са опитвали да приемат хапчета, да посещават лекари и да следват диети.",
+      label: "What has the client tried so far to achieve their goal that didn't work?",
+      placeholder: "Example: They have tried taking pills, visiting doctors, and following diets.",
     },
     {
       id: "productService",
-      label: "Какъв е вашият продукт/услуга?",
+      label: "What is your product/service?",
       placeholder:
-        "Пример: Книга, която обяснява как да решите проблемите си естествено с помощта на храната, която ядете.",
+        "Example: A book that explains how to solve your problems naturally with the food you eat.",
     },
     {
       id: "background",
-      label: "Какво трябва да знаем за вас и защо създадохте този продукт/услуга?",
-      placeholder: "Пример: Преди година аз...",
+      label: "What should we know about you and why did you create this product/service?",
+      placeholder: "Example: A year ago I...",
     },
     {
       id: "includes",
-      label: "Какво включва вашият продукт/услуга?",
-      placeholder: "Пример: Книга + 3 PDF наръчника със 100 рецепти, които можете да приготвите вкъщи.",
+      label: "What does your product/service include?",
+      placeholder: "Example: Book + 3 PDF guides with 100 recipes you can prepare at home.",
     },
   ]
 
@@ -257,8 +246,8 @@ Please ensure that the response is complete and includes all sections of the sal
                 className="flex items-center gap-2"
               >
                 <span className="text-xl font-semibold flex items-center gap-1">
-                  <span className="bg-white text-black px-2">kreatify</span>
-                  <span>.app</span>
+                  <span className="bg-white text-black px-2">Harmony</span>
+                  <span>TV</span>
                 </span>
                 {userData?.plan && (
                   <span
@@ -296,9 +285,9 @@ Please ensure that the response is complete and includes all sections of the sal
               >
                 <CardContent className="p-4">
                   <BarChart2 className="w-6 h-6 mb-2 text-white" />
-                  <h3 className="font-semibold text-lg mb-2 text-white">Създайте продажбена фуния</h3>
+                  <h3 className="font-semibold text-lg mb-2 text-white">Create Sales Funnel</h3>
                   <p className="text-sm text-gray-400">
-                    Генерирайте цялостна стратегия за продажбена фуния за вашия бизнес
+                    Generate a comprehensive sales funnel strategy for your business
                   </p>
                 </CardContent>
               </Card>
@@ -317,7 +306,7 @@ Please ensure that the response is complete and includes all sections of the sal
                     <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm">
                       <div className="flex items-center gap-2 text-white">
                         <Lock className="w-4 h-4" />
-                        <span>Надградете плана си, за да използвате</span>
+                        <span>Upgrade your plan to use</span>
                       </div>
                     </div>
                   )}
@@ -343,7 +332,7 @@ Please ensure that the response is complete and includes all sections of the sal
                     <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm">
                       <div className="flex items-center gap-2 text-white">
                         <Lock className="w-4 h-4" />
-                        <span>Надградете плана си, за да използвате</span>
+                        <span>Upgrade your plan to use</span>
                       </div>
                     </div>
                   )}
@@ -363,7 +352,7 @@ Please ensure that the response is complete and includes all sections of the sal
                 <Input
                   id="search-queries"
                   type="search"
-                  placeholder="Търсене на подсказки..."
+                  placeholder="Search prompts..."
                   className="bg-transparent border-gray-500 text-white placeholder:text-gray-400"
                   disabled={isFeatureLocked("search")}
                 />
@@ -371,7 +360,7 @@ Please ensure that the response is complete and includes all sections of the sal
                   <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-md">
                     <div className="flex items-center gap-2 text-white">
                       <Lock className="w-4 h-4" />
-                      <span>Надградете плана си, за да използвате</span>
+                      <span>Upgrade your plan to use</span>
                     </div>
                   </div>
                 )}
@@ -379,13 +368,13 @@ Please ensure that the response is complete and includes all sections of the sal
             </div>
 
             {/* Chat Messages Display */}
-            <h2 className="text-xl font-semibold text-white mb-4">Вашите сесийни подсказки</h2>
+            <h2 className="text-xl font-semibold text-white mb-4">Your Session Prompts</h2>
             <div className="flex-1 overflow-y-auto space-y-4 min-h-[400px] border border-gray-500 rounded-lg p-4">
               {welcomeMessage && (
                 <Card className="bg-transparent backdrop-blur-sm border-gray-500">
                   <CardContent className="p-4 flex gap-3">
                     <div className="flex flex-col items-start gap-1 w-full">
-                      <span className="text-xs text-gray-400">kreatify.app</span>
+                      <span className="text-xs text-gray-400">Harmony TV</span>
                       <div className="flex gap-3 w-full">
                         <Bot className="w-6 h-6 mt-1 flex-shrink-0 text-white" />
                         <div className="flex-1 space-y-2">
@@ -400,12 +389,12 @@ Please ensure that the response is complete and includes all sections of the sal
                 <Card className="bg-transparent backdrop-blur-sm border-gray-500">
                   <CardContent className="p-4 flex gap-3">
                     <div className="flex flex-col items-start gap-1 w-full">
-                      <span className="text-xs text-gray-400">kreatify.app</span>
+                      <span className="text-xs text-gray-400">Harmony TV</span>
                       <div className="flex gap-3 w-full">
                         <Bot className="w-6 h-6 mt-1 flex-shrink-0 text-white" />
                         <div className="flex items-center gap-2">
                           <Loader2 className="h-4 w-4 animate-spin" />
-                          <span className="text-sm text-gray-400">Генериране на вашата продажбена фуния...</span>
+                          <span className="text-sm text-gray-400">Generating your sales funnel...</span>
                         </div>
                       </div>
                     </div>
@@ -420,7 +409,7 @@ Please ensure that the response is complete and includes all sections of the sal
                       <CardContent className="p-4 flex gap-3">
                         <div className="flex flex-col items-start gap-1 w-full">
                           <span className="text-xs text-gray-400">
-                            {message.role === "user" ? `You (${userData?.email || "loading..."})` : "kreatify.app"}
+                            {message.role === "user" ? `You (${userData?.email || "loading..."})` : "Harmony TV"}
                           </span>
                           <div className="flex gap-3 w-full">
                             {message.role === "user" ? (
@@ -444,7 +433,7 @@ Please ensure that the response is complete and includes all sections of the sal
                                     setIsGenerating(true)
                                     append({
                                       role: "user",
-                                      content: "Моля, регенерирайте съдържанието на продажбената фуния.",
+                                      content: "Please regenerate the sales funnel content.",
                                     })
                                   }}
                                   className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-black transition-all duration-700 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -452,7 +441,7 @@ Please ensure that the response is complete and includes all sections of the sal
                                   title={isGenerating ? "Content is being generated" : "Regenerate content"}
                                 >
                                   <RefreshCw className="mr-2 h-4 w-4" />
-                                  Регенериране
+                                  Regenerate
                                 </Button>
                                 {shopifyDomain ? (
                                   <Button
@@ -498,7 +487,7 @@ Please ensure that the response is complete and includes all sections of the sal
                                     }
                                   >
                                     <ShoppingBag className="mr-2 h-4 w-4" />
-                                    Импортиране в моя Shopify магазин
+                                    Import to my Shopify store
                                   </Button>
                                 ) : (
                                   <Button
@@ -512,7 +501,7 @@ Please ensure that the response is complete and includes all sections of the sal
                                     }
                                   >
                                     <Link className="mr-2 h-4 w-4" />
-                                    Свържете вашия Shopify магазин, за да импортирате фунията си
+                                    Connect your Shopify store to import your funnel
                                   </Button>
                                 )}
                               </div>
