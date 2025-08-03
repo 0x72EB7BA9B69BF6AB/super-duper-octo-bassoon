@@ -3,7 +3,6 @@
 import { motion, useMotionValue, useSpring } from "framer-motion"
 import { useEffect, useRef } from "react"
 import { Footer } from "@/components/footer"
-import { Navigation } from "@/components/navigation"
 import { Preloader } from "@/components/preloader"
 
 const blink = {
@@ -90,7 +89,6 @@ export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
       </motion.div>
 
       <div className="relative z-10">
-        <Navigation />
         <motion.section className="min-h-[25vh] flex flex-col items-center justify-center px-4 py-8 sm:py-12">
           <motion.div
             variants={containerVariants}
