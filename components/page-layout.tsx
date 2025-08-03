@@ -89,7 +89,7 @@ export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
       </motion.div>
 
       <div className="relative z-10">
-        <motion.section className="min-h-[25vh] flex flex-col items-center justify-center px-4 py-8 sm:py-12">
+        <motion.section className="min-h-[25vh] flex flex-col items-center justify-center px-4 py-6 sm:py-8">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -113,7 +113,7 @@ export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
           </motion.div>
         </motion.section>
 
-        <motion.section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <motion.section className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
