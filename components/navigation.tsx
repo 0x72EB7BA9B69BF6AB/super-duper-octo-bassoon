@@ -11,14 +11,14 @@ export function Navigation() {
           </Link>
         </div>
 
-        <div className="flex gap-6 sm:gap-8 text-white text-sm sm:text-base font-medium">
-          <Link href="/" className="hover:text-gray-300 transition-colors px-2 py-1 rounded hover:bg-white/10">
+        <div className="flex items-center gap-4 sm:gap-6 text-white text-sm sm:text-base font-medium">
+          <Link href="/" className="hover:text-gray-300 transition-colors px-3 py-2 rounded hover:bg-white/10 text-center">
             Home
           </Link>
-          <Link href="/login" className="hover:text-gray-300 transition-colors px-2 py-1 rounded hover:bg-white/10">
+          <Link href="/login" className="hover:text-gray-300 transition-colors px-3 py-2 rounded hover:bg-white/10 text-center">
             Connexion
           </Link>
-          <Link href="/register" className="bg-white text-black px-4 py-2 rounded hover:bg-gray-200 transition-colors font-semibold">
+          <Link href="/register" className="bg-white text-black px-4 py-2 rounded hover:bg-gray-200 transition-colors font-semibold text-center">
             Inscription
           </Link>
         </div>

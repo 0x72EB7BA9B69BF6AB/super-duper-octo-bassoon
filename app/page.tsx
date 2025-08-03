@@ -119,7 +119,7 @@ export default function Home() {
               variants={itemVariants}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight flex flex-wrap items-center justify-center gap-2"
             >
-              <span className="bg-white text-black px-2">Harmony</span>
+              <span className="bg-white text-black px-3 py-1">Harmony</span>
               <span className="flex items-center">
                 <TypeWriter text="TV" delay={150} />
                 <span className="w-[2px] h-[1em] bg-white animate-[blink_1s_ease-in-out_infinite]" />
