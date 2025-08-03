@@ -3,6 +3,7 @@
 import { motion, useMotionValue, useSpring } from "framer-motion"
 import { useEffect, useRef } from "react"
 import { Footer } from "@/components/footer"
+import { Navigation } from "@/components/navigation"
 import { Preloader } from "@/components/preloader"
 
 const blink = {
@@ -89,12 +90,13 @@ export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
       </motion.div>
 
       <div className="relative z-10">
-        <motion.section className="min-h-[40vh] flex flex-col items-center justify-center px-4 py-12 sm:py-16 lg:py-20">
+        <Navigation />
+        <motion.section className="min-h-[25vh] flex flex-col items-center justify-center px-4 py-8 sm:py-12">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-center max-w-[90%] sm:max-w-3xl mx-auto space-y-6 sm:space-y-8"
+            className="text-center max-w-[90%] sm:max-w-3xl mx-auto space-y-4 sm:space-y-6"
           >
             <motion.h1
               variants={itemVariants}
@@ -113,7 +115,7 @@ export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
           </motion.div>
         </motion.section>
 
-        <motion.section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <motion.section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
