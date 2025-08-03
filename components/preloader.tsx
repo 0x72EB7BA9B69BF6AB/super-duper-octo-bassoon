@@ -32,10 +32,10 @@ export function Preloader() {
           transition={{ duration: 1.2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           className="flex items-center gap-1 sm:gap-2"
         >
-          <span className="text-4xl sm:text-5xl lg:text-6xl font-semibold bg-white text-black px-4 sm:px-5 py-1">
+          <span className="text-2xl sm:text-3xl lg:text-4xl font-semibold bg-white text-black px-4 sm:px-5 py-1">
             Harmony
           </span>
-          <span className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white">TV</span>
+          <span className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white">TV</span>
         </motion.div>
       </div>
     </motion.div>

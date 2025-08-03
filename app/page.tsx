@@ -117,7 +117,7 @@ export default function Home() {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight flex flex-wrap items-center justify-center gap-2"
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight flex flex-wrap items-center justify-center gap-2"
             >
               <span className="bg-white text-black px-3 py-1">Harmony</span>
               <span className="flex items-center">
@@ -178,7 +178,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base"
               >
-                See how we're transforming businesses worldwide
+                See how we&apos;re transforming businesses worldwide
               </motion.p>
             </div>
             <div className="grid grid-cols-3 gap-6">
@@ -270,7 +270,7 @@ export default function Home() {
                 Simple and transparent pricing
               </motion.h2>
               <motion.p variants={itemVariants} className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-                Choose the perfect plan for your needs. Always know what you'll pay.
+                Choose the perfect plan for your needs. Always know what you&apos;ll pay.
               </motion.p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
