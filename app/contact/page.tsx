@@ -38,20 +38,20 @@ export default function Contact() {
       title="Contact Us" 
       subtitle="Get in touch with our team - we're here to help you succeed"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 h-full">
         {/* Contact Form */}
         <Card className="bg-transparent backdrop-blur-2xl border-gray-500 text-white">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold flex items-center gap-2">
-              <MessageSquare className="h-6 w-6" />
+          <CardHeader className="pb-4">
+            <CardTitle className="text-xl sm:text-2xl font-bold flex items-center gap-2">
+              <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6" />
               Send us a Message
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
                     Full Name
                   </label>
                   <Input
@@ -61,12 +61,12 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="bg-transparent border-gray-500 text-white placeholder-gray-400 focus:border-white"
+                    className="bg-transparent border-gray-500 text-white placeholder-gray-400 focus:border-white h-9"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
                     Email Address
                   </label>
                   <Input
@@ -76,14 +76,14 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="bg-transparent border-gray-500 text-white placeholder-gray-400 focus:border-white"
+                    className="bg-transparent border-gray-500 text-white placeholder-gray-400 focus:border-white h-9"
                     placeholder="john@example.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
                   Subject
                 </label>
                 <Input
@@ -93,20 +93,20 @@ export default function Contact() {
                   required
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="bg-transparent border-gray-500 text-white placeholder-gray-400 focus:border-white"
+                  className="bg-transparent border-gray-500 text-white placeholder-gray-400 focus:border-white h-9"
                   placeholder="How can we help you?"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
                   Message
                 </label>
                 <Textarea
                   id="message"
                   name="message"
                   required
-                  rows={6}
+                  rows={4}
                   value={formData.message}
                   onChange={handleInputChange}
                   className="bg-transparent border-gray-500 text-white placeholder-gray-400 focus:border-white resize-none"
@@ -116,7 +116,7 @@ export default function Contact() {
 
               <Button
                 type="submit"
-                className="w-full bg-white text-black hover:bg-gray-200 transition-colors duration-300 font-medium py-3"
+                className="w-full bg-white text-black hover:bg-gray-200 transition-colors duration-300 font-medium py-2"
               >
                 Send Message
               </Button>
@@ -125,21 +125,21 @@ export default function Contact() {
         </Card>
 
         {/* Contact Information */}
-        <div className="space-y-6">
+        <div className="space-y-4 overflow-y-auto">
           <Card className="bg-transparent backdrop-blur-2xl border-gray-500 text-white">
-            <CardContent className="p-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-white/10 p-3 rounded-lg">
-                  <Mail className="h-6 w-6 text-white" />
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
+                <div className="bg-white/10 p-2 rounded-lg">
+                  <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">Email Support</h3>
-                  <p className="text-gray-300 mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold mb-1">Email Support</h3>
+                  <p className="text-gray-300 mb-1 text-sm">
                     Get direct support from our team
                   </p>
                   <a 
                     href="mailto:support@harmonytv.com" 
-                    className="text-white hover:text-gray-300 transition-colors"
+                    className="text-white hover:text-gray-300 transition-colors text-sm"
                   >
                     support@harmonytv.com
                   </a>
@@ -149,17 +149,17 @@ export default function Contact() {
           </Card>
 
           <Card className="bg-transparent backdrop-blur-2xl border-gray-500 text-white">
-            <CardContent className="p-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-white/10 p-3 rounded-lg">
-                  <Clock className="h-6 w-6 text-white" />
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
+                <div className="bg-white/10 p-2 rounded-lg">
+                  <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">Response Time</h3>
-                  <p className="text-gray-300 mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold mb-1">Response Time</h3>
+                  <p className="text-gray-300 mb-1 text-sm">
                     We typically respond within
                   </p>
-                  <ul className="space-y-1 text-white">
+                  <ul className="space-y-1 text-white text-sm">
                     <li>• Free Plan: 48 hours</li>
                     <li>• Pro Plan: 24 hours</li>
                     <li>• Premium Plan: 4 hours</li>
@@ -170,17 +170,17 @@ export default function Contact() {
           </Card>
 
           <Card className="bg-transparent backdrop-blur-2xl border-gray-500 text-white">
-            <CardContent className="p-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-white/10 p-3 rounded-lg">
-                  <MapPin className="h-6 w-6 text-white" />
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
+                <div className="bg-white/10 p-2 rounded-lg">
+                  <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">Our Location</h3>
-                  <p className="text-gray-300 mb-2">
+                  <h3 className="text-base sm:text-lg font-semibold mb-1">Our Location</h3>
+                  <p className="text-gray-300 mb-1 text-sm">
                     Based in the heart of innovation
                   </p>
-                  <p className="text-white">
+                  <p className="text-white text-sm">
                     San Francisco, CA<br />
                     United States
                   </p>
@@ -190,35 +190,35 @@ export default function Contact() {
           </Card>
 
           {/* FAQ Section */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Frequently Asked Questions</h3>
-            <div className="space-y-3">
+          <div className="space-y-3">
+            <h3 className="text-lg sm:text-xl font-bold text-white">Frequently Asked Questions</h3>
+            <div className="space-y-2">
               <details className="group">
-                <summary className="flex items-center justify-between p-4 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
-                  <span className="font-medium text-white">How do I upgrade my plan?</span>
+                <summary className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
+                  <span className="font-medium text-white text-sm">How do I upgrade my plan?</span>
                   <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <div className="p-4 text-gray-300 bg-white/5 rounded-b-lg">
+                <div className="p-3 text-gray-300 bg-white/5 rounded-b-lg text-sm">
                   You can upgrade your plan anytime from your account dashboard. Changes take effect immediately.
                 </div>
               </details>
 
               <details className="group">
-                <summary className="flex items-center justify-between p-4 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
-                  <span className="font-medium text-white">Do you offer refunds?</span>
+                <summary className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
+                  <span className="font-medium text-white text-sm">Do you offer refunds?</span>
                   <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <div className="p-4 text-gray-300 bg-white/5 rounded-b-lg">
+                <div className="p-3 text-gray-300 bg-white/5 rounded-b-lg text-sm">
                   We offer a 14-day satisfaction guarantee for all paid plans. Contact us for refund requests.
                 </div>
               </details>
 
               <details className="group">
-                <summary className="flex items-center justify-between p-4 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
-                  <span className="font-medium text-white">Can I cancel anytime?</span>
+                <summary className="flex items-center justify-between p-3 bg-white/5 rounded-lg cursor-pointer hover:bg-white/10 transition-colors">
+                  <span className="font-medium text-white text-sm">Can I cancel anytime?</span>
                   <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <div className="p-4 text-gray-300 bg-white/5 rounded-b-lg">
+                <div className="p-3 text-gray-300 bg-white/5 rounded-b-lg text-sm">
                   Yes, you can cancel your subscription at any time. Your access continues until the end of your billing period.
                 </div>
               </details>

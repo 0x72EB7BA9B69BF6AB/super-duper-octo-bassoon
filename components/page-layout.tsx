@@ -68,7 +68,7 @@ export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
   }
 
   return (
-    <div ref={targetRef} className="min-h-screen bg-transparent text-white overflow-hidden select-none">
+    <div ref={targetRef} className="h-screen bg-transparent text-white overflow-hidden select-none flex flex-col">
       <Preloader />
       <motion.div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-black" />
@@ -88,8 +88,8 @@ export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
       </motion.div>
 
-      <div className="relative z-10">
-        <motion.section className="min-h-[25vh] flex flex-col items-center justify-center px-4 py-6 sm:py-8">
+      <div className="relative z-10 flex flex-col h-full">
+        <motion.section className="flex-shrink-0 flex flex-col items-center justify-center px-4 py-6 sm:py-8">
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -113,12 +113,12 @@ export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
           </motion.div>
         </motion.section>
 
-        <motion.section className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8">
+        <motion.section className="flex-1 overflow-y-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto h-full"
           >
             {children}
           </motion.div>
