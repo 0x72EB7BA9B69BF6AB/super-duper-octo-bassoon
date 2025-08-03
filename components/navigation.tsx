@@ -2,8 +2,8 @@ import Link from "next/link"
 
 export function Navigation() {
   return (
-    <nav className="py-2 sm:py-3 px-4 sm:px-6 lg:px-8 bg-black/80 backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+    <nav className="w-full py-2 sm:py-3 px-0 bg-black/80 backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
+      <div className="w-full max-w-none px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
         <div className="flex items-center">
           <Link href="/" className="text-lg sm:text-xl font-bold flex items-center gap-1 hover:opacity-80 transition-opacity">
             <span className="bg-white text-black px-3 py-1 font-semibold">Harmony</span>
